@@ -1,7 +1,7 @@
 import express, {Express, Request, Response} from 'express';
-import {ChattyServer} from './setupServer';
-import databaseConnect from './setupDatabase';
-import {config} from "./config";
+import {ChattyServer} from '@root/setupServer';
+import databaseConnect from '@root/setupDatabase';
+import {config} from "@root/config";
 
 export class Application {
     public init(): void {
@@ -14,6 +14,7 @@ export class Application {
 
     private loadConfig(): void {
         config.validateConfig();
+        config.cloudinaryConfig();
     }
 }
 

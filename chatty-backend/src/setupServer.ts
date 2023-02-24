@@ -5,18 +5,18 @@ import compression from 'compression';
 import cors from 'cors'
 import hpp from 'hpp';
 import helmet from "helmet";
-import { config } from "./config";
+import {config} from "@root/config";
+import applicationRoutes from "@root/routes";
 
 import { Server } from 'socket.io';
 
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
 
-import applicationRoutes from './routes';
 import HTTP_STATUS from "http-status-codes";
-import {CustomError, IErrorResponse} from "./shared/globals/helpers/error-handler";
 
 import Logger from 'bunyan';
+import {CustomError, IErrorResponse} from "@global/helpers/error-handler";
 
 
 const SERVER_PORT = process.env.PORT || 8000;
@@ -117,5 +117,7 @@ export class ChattyServer {
         })
     }
 
-    private socketIOConnections(io: Server): void {}
+    private socketIOConnections(io: Server): void {
+        console.log("socketIOConnections");
+    }
 }
